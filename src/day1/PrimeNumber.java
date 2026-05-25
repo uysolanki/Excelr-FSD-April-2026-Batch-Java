@@ -24,7 +24,17 @@ public class PrimeNumber {
 		} else {
 			System.out.println(n1 + " number is Not Prime");
 		}
-
 	}
-
 }
+
+//153
+//Armstrong number
+//  1             5             3
+//  1*1*1         5*5*5         3*3*3
+//  1        +    125      +    27
+//  153
+
+//count sum of digits
+//153
+//1        5         3
+//                     %10
