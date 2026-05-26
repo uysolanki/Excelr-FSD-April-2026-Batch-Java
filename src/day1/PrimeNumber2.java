@@ -2,7 +2,7 @@ package day1;
 
 import java.util.Scanner;
 
-public class PrimeNumber {
+public class PrimeNumber2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -10,21 +10,24 @@ public class PrimeNumber {
 		System.out.println("Enter a number");
 		int n1 = sc.nextInt(); // n1=7
 
+		checkPrime(n1);
 		
-		// start end n1
-		// 1 2 3 4 5 6 7
-		int counter = 0;
-		for (int i = 1; i <= n1; i++) {
-			if (n1 % i == 0) {
-				counter++;
-			}
-		}
+	}
 
-		if (counter == 2) {
-			System.out.println(n1 + " number is Prime");
-		} else {
-			System.out.println(n1 + " number is Not Prime");
-		}
+	private static void checkPrime(int n1) {
+				int counter = 0;
+				for (int i = 1; i <= n1; i++) {
+					if (n1 % i == 0) {
+						counter++;
+					}
+				}
+
+				if (counter == 2) {
+					System.out.println(n1 + " number is Prime");
+				} else {
+					System.out.println(n1 + " number is Not Prime");
+				}
+		
 	}
 }
 
