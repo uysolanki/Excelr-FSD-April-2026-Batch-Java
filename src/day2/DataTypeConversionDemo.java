@@ -17,7 +17,6 @@ public class DataTypeConversionDemo {
 		
 		System.out.println("INT "+n2);  	// INT 5
 		System.out.println("DOUBLE "+d2);   // DOUBLE 5.75
-
 	}
 
 }
