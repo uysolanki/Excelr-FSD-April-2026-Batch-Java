@@ -17,3 +17,8 @@ public class RemoveDigitsFromString {
 	}														//'d'           "abcd"
 
 }
+
+
+//String 									StringBuilder							Stringbuffer
+//immutable									mutable									mutable
+//non synchronised							non synchronised						synchronised(thread)
