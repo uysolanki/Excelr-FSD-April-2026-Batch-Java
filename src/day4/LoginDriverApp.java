@@ -23,7 +23,7 @@ public class LoginDriverApp {
 		}
 		else
 		{
-			System.out.println(z);
+			//System.out.println(z);
 		}
 		test();
 
@@ -31,8 +31,8 @@ public class LoginDriverApp {
 	}
 
 	private static void test() {
-		System.out.println(x);		//cannot access as it is out of scope
-		System.out.println(y);
+//		System.out.println(x);		//cannot access as it is out of scope
+//		System.out.println(y);
 		
 	}
 }
