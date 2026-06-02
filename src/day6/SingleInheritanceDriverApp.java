@@ -2,7 +2,7 @@ package day6;
 
 public class SingleInheritanceDriverApp {
 public static void main(String[] args) {
-Employee e1=new Employee();
+	Employee e1=new Employee();
 	
 	e1.acceptPerson();
 	e1.acceptEmployee();
