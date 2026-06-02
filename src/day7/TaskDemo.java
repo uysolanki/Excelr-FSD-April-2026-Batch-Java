@@ -14,3 +14,9 @@ public class TaskDemo {
 
 
 //output Virat Kohli
+
+//static
+//1.data
+//2.method
+//3.block
+//4.import

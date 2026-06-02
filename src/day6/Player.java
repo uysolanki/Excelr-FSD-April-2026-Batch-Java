@@ -79,7 +79,7 @@ public class Player {
 	public boolean search(int sjno)		//method overloading
 	{									//2 or multiple functions can have the same name in the same class
 		if(this.jno==sjno)				//with different paramter/args list		
-			return true;
+			return true;				//for overloading inheritance is not required
 		else
 			return false;
 	}
