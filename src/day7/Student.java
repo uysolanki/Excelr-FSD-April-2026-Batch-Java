@@ -9,7 +9,7 @@ public class Student
 	private String sname;					//instance scope
 	private double per;						//instance scope
 	private boolean outStationCandidate;  	//instance scope
-	static int strength=0;
+	static int strength=0;					//static will be class level variable
 	
 	
 	public Student() {}
@@ -38,7 +38,7 @@ public class Student
 		this.outStationCandidate=false;
 	}
 	
-	public void displayStudent()
+	public void displayStudent()  //non static method
 	{
 		System.out.println("Student Roll Number is "+this.rno);
 		
@@ -46,13 +46,20 @@ public class Student
 		
 		System.out.println("Student Percentage is "+ this.per);
 		
-		System.out.println("Student Domicile is Out Station Candiate  "+this.outStationCandidate);
-	
+		System.out.println("Student Domicile is Out Station Candiate  "+ this.outStationCandidate);
+		displayStrength();
 	}
 	
-	public static void displayStrength()
+	public static void displayStrength() //static method
 	{
-		System.out.println("Total Number of Students in class is "+Student.strength);
+		System.out.println("Total Number of Students in class is "+ Student.strength);
+		test();
+		int a=20;   //local variable cannot be static
+	}
+	
+	public static void test()
+	{
+		System.out.println("Static Method Demo");
 	}
 }
 
