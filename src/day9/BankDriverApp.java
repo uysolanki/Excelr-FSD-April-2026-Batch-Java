@@ -26,7 +26,13 @@ public class BankDriverApp {
 			case 2: bank.withdraw(); break;
 			case 3: bank.onlineTransfer(); break;
 			case 4: bank.checkBalance(); break;
-			case 0: System.out.println("Closing App..."); System.exit(0);
+			case 0: System.out.println("Are You sure you want to close 0-Yes, 1-No"); 
+					choice=sc.nextInt();
+					if(choice==0)
+					{
+					System.out.println("Closing App..."); System.exit(0); 
+					}
+					break;
 			default : System.out.println("Invalid Input");
 			}
 			
