@@ -1,4 +1,4 @@
-package day9;
+package day9.ver2;
 
 import java.util.Random;
 
