@@ -13,7 +13,8 @@ public class ExceptionHandlingFormat {
 		}
 		catch(ArithmeticException ex1)
 		{
-			System.out.println("Please enter valid denominator");
+			//System.out.println("Please enter valid denominator");
+			System.out.println(ex1.getMessage());  //message of ArithmeticException is "/ by zero"
 		}
 		
 		
