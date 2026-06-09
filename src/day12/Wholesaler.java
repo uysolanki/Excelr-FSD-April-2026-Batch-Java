@@ -17,15 +17,15 @@ public class Wholesaler {
 			
 			if(qty<500)
 			{
-			throw new LowQuantityException("Please enter qty greater than 500");
-			}
-			else
+			throw new ArithmeticException("Please enter qty greater than 500");  //to explicitly raise an exception
+			}																     //we use throw keyword
+			else																 // generally it is used to throw custom exception
 			{
 				System.out.println("Order Placed Successfully");
 			}
 			
 		}
-		catch(LowQuantityException ex1)
+		catch(ArithmeticException ex1)
 		{
 			System.out.println(ex1.getMessage());
 		}
@@ -38,3 +38,8 @@ public class Wholesaler {
 	}
 
 }
+
+//Vi rat     //custom InvalidNameException
+
+//Virat     //name accepted
+
