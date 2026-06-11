@@ -107,12 +107,16 @@ public class BankDriverApp {
 		}
 		else
 		{
-			System.out.println("Invalid Credentials");
+			throw new InvalidCredentialException("Please enter valid credentials");
 		}
 		}
 		catch(InputMismatchException ex4)
 		{
 			System.out.println("Please enter valid Amount");
+		}
+		catch(InvalidCredentialException ex5)
+		{
+			System.out.println(ex5.getMessage());
 		}
 	}
 
