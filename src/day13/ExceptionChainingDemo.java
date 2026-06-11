@@ -39,7 +39,9 @@ private static double getTotalCostOfPuttingCarpet() throws IOException
 	}
 	catch(NullPointerException ex)
 	{
-		System.out.println("Message for Programmer, Technicle Message check for null objects");
+		//System.out.println("Message for Programmer, Technicle Message check for null objects");
+		//ex.printStackTrace();
+		System.out.println("Message for Programmer :" + ex.getCause());
 		throw new IOException("Message for Customer, Non Technicle Message Connectivity will resume shortly");
 	}
 }
