@@ -13,7 +13,7 @@ public class AddMethodDemo {
 		ArrayList<String> names=new ArrayList();	//Generics
 		names.add("Alice");		//true add successfully true
 		names.add("Ben");
-		names.add(123);
+		//names.add(123);
 		
 		
 		String st=names.get(0);
