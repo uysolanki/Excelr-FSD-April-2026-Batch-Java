@@ -13,6 +13,5 @@ public static void main(String[] args) {
 	executor.submit(new Gama());
 	
 	executor.shutdown();
-	
 }
 }
