@@ -1,5 +1,6 @@
 package day17;
 
+import java.util.LinkedList;
 import java.util.Vector;
 //legacy class in java since 1.1
 public class VectorDemo {
@@ -43,6 +44,9 @@ public class VectorDemo {
 		
 		System.out.println("CAPACITY " +vector2.capacity());//8
 		System.out.println("SIZE " +vector2.size());//6
+		
+		LinkedList<String> list2=new LinkedList();
+		Vector vector3=new Vector(list2);	
 	}
 
 }
