@@ -40,7 +40,7 @@ public static void main(String[] args) {
 	
 	//display name of first student of all classes
 	System.out.println("-------");
-	for(ArrayList<Student> year:bcom)
+	for(ArrayList<Student> year:bcom)		//year syStudent
 	{
 		System.out.println(year.get(0).getSname());
 	}
