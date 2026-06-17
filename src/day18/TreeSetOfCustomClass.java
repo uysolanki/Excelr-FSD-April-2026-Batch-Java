@@ -27,10 +27,12 @@ public class TreeSetOfCustomClass {
 		System.out.println(fyStudentsExamSeating);	//[[1,Rahul,98.5],[45,Rohit,88.5],[18,Virat,99.5]]
 		
 		
-		TreeSet<Student> fyStudentsResultList=new TreeSet(new PerComparator());	//compare by name in ASC Order
-		fyStudentsResultList.add(s1);
-		fyStudentsResultList.add(s2);
-		fyStudentsResultList.add(s3);
+		TreeSet<Student> fyStudentsResultList=new TreeSet(new PerComparator());	//compare by per in DESC Order
+		fyStudentsResultList.add(new Student(1,"Alice",98.5));
+		fyStudentsResultList.add(new Student(3,"Ben",88.5));
+		fyStudentsResultList.add(new Student(2,"Chris",78.5));
+		fyStudentsResultList.add(new Student(4,"David",98.5));
+		fyStudentsResultList.add(new Student(5,"Frank",98.5));
 		System.out.println("***Results Published***");
 		System.out.println(fyStudentsResultList); // [[18,Virat,99.5],[1,Rahul,98.5],[45,Rohit,88.5]]
 	}

@@ -12,7 +12,7 @@ public class PerComparator implements Comparator<Student>
 		else if(s1.getPer() < s2.getPer())
 			return 1;
 		else
-			return 0;
+			return s1.getSname().compareTo(s2.getSname());
 	}
 
 }
