@@ -19,7 +19,6 @@ public static void main(String[] args) {
 	}
 	
 	System.out.println(map);
-	
 }
 }
 
@@ -31,3 +30,10 @@ public static void main(String[] args) {
 'e'=1
 }
 */
+
+
+//stream API  
+
+//Iphone 17		    Arrays
+//Iphone 17 pro     Collections(we are here)  Map
+//Iphone 17 pro max Streams
