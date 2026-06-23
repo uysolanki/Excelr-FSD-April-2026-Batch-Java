@@ -19,6 +19,13 @@ public class PartiotionByDemo {
 		
 		System.out.println(hashmap);
 		
+		
+		Map<Boolean,Long> hashmap1=new HashMap();
+		hashmap1=Arrays.stream(words)	//logic for value      , downstream
+		.collect(Collectors.partitioningBy(str->str.length()>=5,Collectors.counting()));
+		
+		System.out.println(hashmap1);
+		
 
 	}
 
@@ -31,3 +38,10 @@ public class PartiotionByDemo {
 
 //key boolean
 //value list<type of stream>
+
+
+//downstream
+//extra operation to be performed after the basic operation
+
+//{false=7, true=3}
+
