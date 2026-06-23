@@ -2,7 +2,9 @@ package day22;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamDemo2 {
@@ -23,6 +25,7 @@ public class StreamDemo2 {
 		employeesList.add(new Employee(10, LocalDate.parse("2016-02-28"), LocalDate.parse("1989-09-21"), "October", "female", "Marketing", 6000.0));
 		employeesList.add(new Employee(11, LocalDate.parse("2021-10-09"), LocalDate.parse("1996-12-03"), "November", "male", "IT", 4100.0));
 		employeesList.add(new Employee(12, LocalDate.parse("2019-05-17"), LocalDate.parse("1994-04-28"), "December", "female", "HR", 3500.0));
+		employeesList.add(new Employee(13, LocalDate.parse("2019-05-17"), LocalDate.parse("1994-04-28"), "Monday", "female", "HR", 3500.0));
 	
 		//display names of all employees
 		List<String> empNames=employeesList.stream()
@@ -71,16 +74,61 @@ public class StreamDemo2 {
 				.sum();
 				System.out.println("Total Salary "+totalSalary1);
 				
-				// display total salary numeric stream
+				// display average salary numeric stream
 				double averageSalary=employeesList.stream()  //[null,null]
 				.mapToDouble(Employee::getSalary)
 				.average()
 				.orElse(0.0);
 				System.out.println("Average Salary "+averageSalary);
 				
-				// display avergare salary numeric stream
+				// group employees based on dept
+				//{"IT"=[{},{},{}], "Sales"=[{},{},{}], "HR"=[{},{}]}
 				
-	
+				
+				Map<String,List<Employee>> groupByDeptname=employeesList.stream()
+						.collect(Collectors.groupingBy(Employee::getDepartment));
+				
+				System.out.println(groupByDeptname);
+				
+				// group employee names based on dept
+				//{"IT"=["April","May","June"], "Sales"=["Nov",Dec"], "HR"=[]}
+				Map<String,List<String>> groupEmpnamesByDeptname=employeesList.stream()
+						.collect(Collectors.groupingBy(Employee::getDepartment,Collectors.mapping(emp->emp.getEname(), Collectors.toList())));
+				
+				System.out.println(groupEmpnamesByDeptname);
+				
+				// count of employee  dept wise
+				//{"IT"=3, "Sales"=2, "Finance"=2, HR=3}
+				Map<String,Long> countEmpnamesByDeptname=
+						employeesList.stream()
+						.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+				System.out.println(countEmpnamesByDeptname);
+				
+				//display  dept with highest no of emps
+				long countMaxEmployeesInDept=employeesList.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+				.entrySet()
+				.stream()
+				.mapToLong(entry->entry.getValue())
+				.max()
+				.orElse(0);
+				
+				System.out.println(countMaxEmployeesInDept);
+				
+				
+				employeesList.stream()
+						.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+						.entrySet()
+						.stream()
+						.max(Map.Entry.comparingByValue())
+						.ifPresent(entry->System.out.println(entry.getKey()));
+						
+			
+				
+				
+				
+				
+						
 	}
 
 }
