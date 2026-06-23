@@ -9,7 +9,7 @@ import java.util.function.Predicate;
 public class FunctionalStyleDemo {
 
 	public static void main(String[] args) {
-		List<Integer> numbers=new ArrayList(Arrays.asList(1,2,3,4,5));
+		List<Integer> numbers=new ArrayList(Arrays.asList(1,2,13,4,5));
 		
 		List<Integer> oddNumbersSquares=numbers.stream()		//[1,2,3,4,5]
 		.filter(num->num%2==1)	//[1,3,5]filter uses a Predicate, what is Predicate? Predicate is a method which returns a boolean
@@ -99,6 +99,10 @@ public class FunctionalStyleDemo {
 		months.stream()
 		.map(String::toUpperCase)
 		.forEach(System.out::println);
+		
+		months.stream()
+		.forEach(System.out::println); //directly terminal operation
+		
 	}
 	
 	public static boolean checkMonthLength(String str)
