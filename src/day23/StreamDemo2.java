@@ -17,7 +17,7 @@ public class StreamDemo2 {
 		employeesList.add(new Employee(2, LocalDate.parse("2019-03-10"), LocalDate.parse("1995-08-12"), "February", "female", "HR", 3200.0));
 		employeesList.add(new Employee(3, LocalDate.parse("2021-07-05"), LocalDate.parse("1999-11-25"), "March", "male", "Finance", 2800.0));
 		employeesList.add(new Employee(4, LocalDate.parse("2018-09-18"), LocalDate.parse("1992-01-30"), "April", "female", "Marketing", 4500.0));
-		employeesList.add(new Employee(5, LocalDate.parse("1990-11-11"), LocalDate.parse("2005-03-12"), "May", "female", "Sales", 3000.0));
+		employeesList.add(new Employee(5, LocalDate.parse("2025-11-11"), LocalDate.parse("2005-03-12"), "May", "female", "Sales", 3000.0));
 		employeesList.add(new Employee(6, LocalDate.parse("2024-06-23"), LocalDate.parse("2001-03-12"), "June", "male", "IT", 1900.0));
 		employeesList.add(new Employee(7, LocalDate.parse("2022-08-14"), LocalDate.parse("1997-07-09"), "July", "male", "HR", 2700.0));
 		employeesList.add(new Employee(8, LocalDate.parse("2017-12-20"), LocalDate.parse("1991-10-15"), "August", "female", "Finance", 5200.0));
@@ -163,7 +163,71 @@ public class StreamDemo2 {
 				.toList();
 				
 				System.out.println(empNamesAbove30Years);
-						
+				
+				//Display names of youngest employee
+				String youngestEmpName= employeesList.stream()
+						.max(Comparator.comparing(Employee::getDateOfBirth))
+					    .map(Employee::getEname)
+					    .orElse(null);
+				
+				System.out.println(youngestEmpName);
+				
+				
+				//Display names of eldest employee
+				String eldestEmpName= employeesList.stream()
+						.min(Comparator.comparing(Employee::getDateOfBirth))
+					    .map(Employee::getEname)
+					    .orElse(null);
+				
+				System.out.println(eldestEmpName);
+				
+				//Display names of most recently joined employee
+				String mostRecentEmpName= employeesList.stream()
+						.max(Comparator.comparing(Employee::getDateOfJoining))
+					    .map(Employee::getEname)
+					    .orElse(null);
+				
+				System.out.println("Most Recent Joiner " +mostRecentEmpName);
+				
+				
+				//Display name of most experienced employee
+				String mostExpEmpName= employeesList.stream()
+						.min(Comparator.comparing(Employee::getDateOfJoining))
+					    .map(Employee::getEname)
+					    .orElse(null);
+				
+				System.out.println("Most Experienced Emp " +mostExpEmpName);
+				
+				//Group employees based on joining year
+				
+				//Map<Integer, List<Employee>>
+				Map<Integer, List<Employee>> emps1=employeesList.stream()
+				.collect(Collectors.groupingBy(emp->emp.getDateOfJoining().getYear()));
+				
+				System.out.println(emps1);
+				
+				//Group employee names based on joining year
+				//Map<Integer, List<String>>
+				Map<Integer, List<String>> emps2=employeesList.stream()
+				.collect(Collectors.groupingBy(emp->emp.getDateOfJoining().getYear(),Collectors.mapping(Employee::getEname, Collectors.toList())));
+				
+				System.out.println(emps2);
+				
+				//display year wise number of joining employees
+				//Map<Integer, Long>
+				Map<Integer, Long> emps3=employeesList.stream()
+				.collect(Collectors.groupingBy(emp->emp.getDateOfJoining().getYear(),Collectors.counting()));
+				System.out.println(emps3);
+				
+				//display year in which max employee joined
+				int year=emps3.entrySet().stream()
+				.max(Map.Entry.comparingByValue())
+				.map(entry->entry.getKey())
+				.orElse(0);
+				
+				System.out.println(year);
+				
+	
 	}
 
 }
