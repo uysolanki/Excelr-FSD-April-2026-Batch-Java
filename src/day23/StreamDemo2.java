@@ -224,10 +224,28 @@ public class StreamDemo2 {
 				.max(Map.Entry.comparingByValue())
 				.map(entry->entry.getKey())
 				.orElse(0);
-				
 				System.out.println(year);
-				
-	
+		
 	}
 
 }
+//int					primitive int 
+//Integer       		Wrapper class
+//Optional<String>							-------     +  -  *	
+//OptionalInt								-------+
+
+
+/*
+---------
+|       |     <---    box  this is optional
+|       |
+---------
+
+---------
+|       |     <---    box  this is optional
+|"Rahul"|
+---------    .get()
+
+Optional value or it will be empty
+
+*/
