@@ -1,4 +1,4 @@
-package day22;
+package day23;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class StreamDemo2 {
 		
 		List<Employee> employeesList = new ArrayList<>();
 
-		employeesList.add(new Employee(1, LocalDate.parse("2020-01-15"), LocalDate.parse("1998-05-20"), "January", "male", "IT", 2500.0));
+		employeesList.add(new Employee(1, LocalDate.parse("2020-01-15"), LocalDate.parse("2013-05-20"), "January", "male", "IT", 2500.0));
 		employeesList.add(new Employee(2, LocalDate.parse("2019-03-10"), LocalDate.parse("1995-08-12"), "February", "female", "HR", 3200.0));
 		employeesList.add(new Employee(3, LocalDate.parse("2021-07-05"), LocalDate.parse("1999-11-25"), "March", "male", "Finance", 2800.0));
 		employeesList.add(new Employee(4, LocalDate.parse("2018-09-18"), LocalDate.parse("1992-01-30"), "April", "female", "Marketing", 4500.0));
@@ -137,9 +137,32 @@ public class StreamDemo2 {
 						
 			
 				
+				//Display names of all Gen-Z employees  1997-2012  born
 				
+				List<String> genZEmpNames=employeesList.stream()
+				.filter(emp->emp.getDateOfBirth().isAfter(LocalDate.of(1997, 1, 1)) &&
+						emp.getDateOfBirth().isBefore(LocalDate.of(2012, 1, 1)))
+				.map(emp->emp.getEname())
+				.toList();
 				
+				System.out.println(genZEmpNames);
 				
+				//Display names & Age of employees
+				employeesList.stream()
+				.forEach(
+				emp->{
+					int age=LocalDate.now().getYear() - emp.getDateOfBirth().getYear();
+					System.out.println(emp.getEname() + " " + age);
+					}
+				);
+				
+				//Display names & Age of employees older than 30 years
+				List<String> empNamesAbove30Years= employeesList.stream()
+				.filter(emp-> LocalDate.now().getYear() - emp.getDateOfBirth().getYear()>=30)
+				.map(Employee::getEname)
+				.toList();
+				
+				System.out.println(empNamesAbove30Years);
 						
 	}
 
