@@ -59,9 +59,20 @@ public class ReadJSONData2 {
        
        List<String> foods1=foods.stream()
        .flatMap(items->items.stream())
-       .toList();
+       .toList();									// [p1,p2],[p1],[p1,p2],[p3]
        
-       System.out.println(foods1);
-	}
+       System.out.println(foods1);  
+       											// [  [ [p1,p2] ] [[p1]] [[p1,p2],p3] []  ]
+       												//[ p1,p2,p1,p2,p1,p2,p3] // unique project names [p1,p2,p3]
+       
+      List<String> abc= workers.stream()
+       .flatMap(worker->worker.getProjects().stream())
+       .map(proj->proj.getProjectName())
+       .distinct()
+       .toList();
+      
+      System.out.println(abc);
+	
+	}													
 
 }
