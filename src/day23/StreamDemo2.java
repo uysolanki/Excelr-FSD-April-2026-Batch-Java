@@ -11,6 +11,7 @@ public class StreamDemo2 {
 
 	public static void main(String[] args) {
 		
+		//System.out.println(new Employee(1, LocalDate.parse("2020-01-15"), LocalDate.parse("2013-05-20"), "January", "male", "IT", 2500.0).hashCode());
 		List<Employee> employeesList = new ArrayList<>();
 
 		employeesList.add(new Employee(1, LocalDate.parse("2020-01-15"), LocalDate.parse("2013-05-20"), "January", "male", "IT", 2500.0));
