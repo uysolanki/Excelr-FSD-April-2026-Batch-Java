@@ -1,8 +1,6 @@
-package PreparedStatementMySQL;
+package day26;
 
-/**
- * 
- */
+
 public class AddRemobeDriver {
 	public static void main(String[] args) throws Exception{
 		Add add_thread = new Add();

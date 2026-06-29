@@ -1,11 +1,8 @@
-package PreparedStatementMySQL;
-
+package day26;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Scanner;
-
-import MySQLConnection.MysqlConnection;
 
 /**
  * 
@@ -14,7 +11,7 @@ public class AddRemobeDriver2 {
 	public static void main(String[] args) throws Exception{
 		Runnable add_thread = ()->{
 			try {
-				Connection con = MysqlConnection.getConnection();
+				Connection con = ExcelRHikariDatabaseConnectionPool.getDataSource().getConnection();
 				Scanner sc=new Scanner(System.in);
 				
 				System.out.println("Enter Number of Employees you wish to insert");
@@ -58,7 +55,7 @@ public class AddRemobeDriver2 {
 		};
 		Runnable delete_thread = ()->{
 			try {
-				Connection con = MysqlConnection.getConnection();
+				Connection con = ExcelRHikariDatabaseConnectionPool.getDataSource().getConnection();
 				String query1="delete from emp where eno=11";    
 				String query2="delete from emp where eno=12";
 				String query3="delete from emp where eno=13";

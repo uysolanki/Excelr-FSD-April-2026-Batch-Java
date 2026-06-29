@@ -1,17 +1,17 @@
-package PreparedStatementMySQL;
+package day26;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.Scanner;
 
-import MySQLConnection.MysqlConnection;
+import day25.ExcelRMySQLConnection;
 
 public class Add extends Thread{
 	@Override
 	
 	 public void run() {
 		try {
-		Connection con = MysqlConnection.getConnection();
+		Connection con = ExcelRMySQLConnection.getConnection();
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("Enter Number of Employees you wish to insert");

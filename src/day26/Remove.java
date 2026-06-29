@@ -1,15 +1,14 @@
-package PreparedStatementMySQL;
-
+package day26;
 import java.sql.Connection;
 import java.sql.Statement;
 
-import MySQLConnection.MysqlConnection;
+import day25.ExcelRMySQLConnection;
 
 public class Remove extends Thread{
 	@Override
 	public void run() {
 		try {
-			Connection con = MysqlConnection.getConnection();
+			Connection con = ExcelRMySQLConnection.getConnection();
 			String query1="delete from emp where eno=11";    
 			String query2="delete from emp where eno=12";
 			String query3="delete from emp where eno=13";
